@@ -2,15 +2,13 @@ import streamlit as st
 import pandas as pd
 from openai import OpenAI
 import os
-from apikey import OPENAI_API_KEY 
 
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
-# Initialize OpenAI client
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 st.set_page_config(page_title="AI Business Analyst — Agent CR", page_icon="🤖", layout="wide")
-
 
 st.markdown("""
 <div style="background: linear-gradient(90deg, #4B79A1, #283E51); padding: 22px; border-radius: 10px; text-align: center;">
@@ -29,7 +27,6 @@ st.markdown("""
 
 st.write("")
 
-
 uploaded = st.file_uploader("📁 Upload your CSV file", type="csv")
 
 if uploaded:
@@ -38,7 +35,6 @@ if uploaded:
     st.subheader("📊 Data Preview")
     st.dataframe(df.head())
 
-    
     st.subheader("💬 Ask Agent CR About Your Data")
     question = st.text_input("Enter your question:")
 
