@@ -46,7 +46,7 @@ You are Agent CR — an expert AI Business Analyst created by Chandriya.
 Analyze the dataset shown below.
 
 Dataset Preview (first rows):
-{df.head(300).to_string()}
+{df.head(30).to_string()}
 
 User question:
 {question}
@@ -79,4 +79,5 @@ Provide:
 
 else:
     st.info("Please upload a CSV to start.")
+
 
